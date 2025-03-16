@@ -1,7 +1,6 @@
 /// <reference types="bun-types" />
 
 import type { SQLOptions } from 'bun';
-import { SQL } from 'bun';
 import { entityKind } from '~/entity.ts';
 import { DefaultLogger } from '~/logger.ts';
 import { PgDatabase } from '~/pg-core/db.ts';
@@ -15,6 +14,9 @@ import {
 import { type DrizzleConfig, isConfig } from '~/utils.ts';
 import type { BunSQLQueryResultHKT } from './session.ts';
 import { BunSQLSession } from './session.ts';
+
+const { SQL } = Bun;
+type SQL = typeof SQL;
 
 export class BunSQLDatabase<
 	TSchema extends Record<string, unknown> = Record<string, never>,
